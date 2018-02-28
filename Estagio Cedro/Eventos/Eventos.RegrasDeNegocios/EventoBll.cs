@@ -60,18 +60,33 @@ namespace Eventos.RegrasDeNegocios
             evento.QuantidadeAmbientes = eventoModelView.QuantidadeAmbientes;
             evento.FaixaEtaria = eventoModelView.FaixaEtaria;
 
-            if(evento.HorarioInicio > 10 && evento.HorarioFinal < 20 && evento.QuantidadeAmbientes > 2)
+            if(evento.HorarioInicio.Hour > 10 && evento.HorarioFinal.Hour < 20 && evento.QuantidadeAmbientes > 2)
             {
                 evento.FaixaEtaria = "Menor que 16 anos.";
             }
             else
-                if (evento.HorarioInicio > 20 && evento.HorarioFinal < 2 && evento.OpenBar == false)
+                if (evento.HorarioInicio.Hour > 20 && evento.HorarioFinal.Hour < 2 && evento.OpenBar == false)
             {
                 evento.FaixaEtaria = "Maior que 16 anos.";
             }
             else
             {
                 evento.FaixaEtaria = "Maior que 18 anos.";
+            }
+            
+
+            //Bonus Points
+            evento.MaximoIngressos = eventoModelView.MaximoIngressos;
+            evento.IngressosVendidos = eventoModelView.IngressosVendidos;
+            evento.QuantidadeIngressos = eventoModelView.QuantidadeIngressos;
+
+            if(evento.IngressosVendidos == evento.MaximoIngressos)
+            {
+                evento.QuantidadeIngressos = "Todos os Ingressos Esgotados";
+            }
+            else
+            {
+                evento.QuantidadeIngressos = "Igressos Disponiveis";
             }
 
             return evento;

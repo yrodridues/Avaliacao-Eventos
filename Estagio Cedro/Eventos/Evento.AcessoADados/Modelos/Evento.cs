@@ -17,10 +17,17 @@ namespace Eventos.AcessoADados.Modelos
         public DateTime DataEvento { get; set; }
         [Required]
         public string LocalEvento { get; set; }
-        public int HorarioInicio { get; set; }
-        public int HorarioFinal { get; set; }
+        public DateTime HorarioInicio { get; set; }
+        public DateTime HorarioFinal { get; set; }
         public Boolean OpenBar { get; set; }
         public int QuantidadeAmbientes { get; set; }
         public string FaixaEtaria { get; set; }
+
+        //Bonus Points
+        [Required]
+        public int MaximoIngressos { get; set; }
+        [Required]
+        public int IngressosVendidos { get; set; }
+        public string QuantidadeIngressos { get; set; }
     }
 }

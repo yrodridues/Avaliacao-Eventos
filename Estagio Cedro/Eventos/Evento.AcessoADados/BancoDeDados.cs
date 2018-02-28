@@ -11,6 +11,8 @@ namespace Eventos.AcessoADados
 
         public DbSet<Evento> Eventos { get; set; }
 
+        public DbSet<Participante> Participantes { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseMySql("server = localhost; " +
